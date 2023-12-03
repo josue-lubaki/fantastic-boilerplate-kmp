@@ -39,6 +39,30 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		44F0F44936C843CEB720E4C9 /* xcuserdata */ = {
+			isa = PBXGroup;
+			children = (
+				44F0F54649CBBF07A7DA86F1 /* josuelubaki.xcuserdatad */,
+			);
+			name = xcuserdata;
+			path = iosApp.xcodeproj/xcuserdata;
+			sourceTree = "<group>";
+		};
+		44F0F54649CBBF07A7DA86F1 /* josuelubaki.xcuserdatad */ = {
+			isa = PBXGroup;
+			children = (
+				44F0F8633380D4AE4371F610 /* xcschemes */,
+			);
+			path = josuelubaki.xcuserdatad;
+			sourceTree = "<group>";
+		};
+		44F0F8633380D4AE4371F610 /* xcschemes */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = xcschemes;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -46,6 +70,7 @@
 				7555FF7D242A565900829871 /* iosApp */,
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
+				44F0F44936C843CEB720E4C9 /* xcuserdata */,
 			);
 			sourceTree = "<group>";
 		};
