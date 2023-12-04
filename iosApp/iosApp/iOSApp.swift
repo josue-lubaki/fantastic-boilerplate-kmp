@@ -7,6 +7,7 @@ class AppDelegate : NSObject, UIApplicationDelegate {
         didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey : Any]? = nil
     ) -> Bool {
         NapierProxyKt.debugBuild()
+        KoinHelperKt.doInitKoin()
         return true
     }
 }

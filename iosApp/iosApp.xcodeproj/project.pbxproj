@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 54;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -17,10 +17,18 @@
 		058557BA273AAA24004C7B11 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		058557D8273AAEEB004C7B11 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		2152FB032600AC8F00CF470E /* iOSApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSApp.swift; sourceTree = "<group>"; };
-		7555FF7B242A565900829871 /* .app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = .app; sourceTree = BUILT_PRODUCTS_DIR; };
+		7555FF7B242A565900829871 /* BoilerPlate.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BoilerPlate.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7555FF82242A565900829871 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		7555FF8C242A565B00829871 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AB3632DC29227652001CCB65 /* Config.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = Config.xcconfig; sourceTree = "<group>"; };
+		B05196BF2B1E59FD00656B34 /* sf_pro_light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_light.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_light.ttf; sourceTree = "<group>"; };
+		B05196C02B1E59FD00656B34 /* sf_pro_medium_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_medium_italic.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_medium_italic.ttf; sourceTree = "<group>"; };
+		B05196C12B1E59FD00656B34 /* sf_pro_thin.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_thin.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_thin.ttf; sourceTree = "<group>"; };
+		B05196C22B1E59FD00656B34 /* sf_pro_regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_regular.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_regular.ttf; sourceTree = "<group>"; };
+		B05196C32B1E59FD00656B34 /* sf_pro_bold_italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_bold_italic.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_bold_italic.ttf; sourceTree = "<group>"; };
+		B05196C42B1E59FD00656B34 /* sf_pro_bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_bold.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_bold.ttf; sourceTree = "<group>"; };
+		B05196C52B1E59FD00656B34 /* sf_pro_medium.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_medium.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_medium.ttf; sourceTree = "<group>"; };
+		B05196C62B1E59FD00656B34 /* sf_pro_semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = sf_pro_semibold.ttf; path = ../../composeApp/src/commonMain/resources/font/sf_pro_semibold.ttf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
@@ -77,7 +85,7 @@
 		7555FF7C242A565900829871 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				7555FF7B242A565900829871 /* .app */,
+				7555FF7B242A565900829871 /* BoilerPlate.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -86,6 +94,14 @@
 			isa = PBXGroup;
 			children = (
 				058557BA273AAA24004C7B11 /* Assets.xcassets */,
+				B05196C32B1E59FD00656B34 /* sf_pro_bold_italic.ttf */,
+				B05196C42B1E59FD00656B34 /* sf_pro_bold.ttf */,
+				B05196BF2B1E59FD00656B34 /* sf_pro_light.ttf */,
+				B05196C02B1E59FD00656B34 /* sf_pro_medium_italic.ttf */,
+				B05196C52B1E59FD00656B34 /* sf_pro_medium.ttf */,
+				B05196C22B1E59FD00656B34 /* sf_pro_regular.ttf */,
+				B05196C62B1E59FD00656B34 /* sf_pro_semibold.ttf */,
+				B05196C12B1E59FD00656B34 /* sf_pro_thin.ttf */,
 				7555FF82242A565900829871 /* ContentView.swift */,
 				7555FF8C242A565B00829871 /* Info.plist */,
 				2152FB032600AC8F00CF470E /* iOSApp.swift */,
@@ -112,6 +128,7 @@
 				F36B1CEB2AD83DDC00CB74D5 /* Compile Kotlin Framework */,
 				7555FF77242A565900829871 /* Sources */,
 				7555FF79242A565900829871 /* Resources */,
+				B03270E32B1E493400DA703B /* ShellScript */,
 			);
 			buildRules = (
 			);
@@ -119,7 +136,7 @@
 			);
 			name = iosApp;
 			productName = iosApp;
-			productReference = 7555FF7B242A565900829871 /* .app */;
+			productReference = 7555FF7B242A565900829871 /* BoilerPlate.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -128,8 +145,9 @@
 		7555FF73242A565900829871 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				BuildIndependentTargetsInParallel = YES;
 				LastSwiftUpdateCheck = 1130;
-				LastUpgradeCheck = 1130;
+				LastUpgradeCheck = 1500;
 				ORGANIZATIONNAME = orgName;
 				TargetAttributes = {
 					7555FF7A242A565900829871 = {
@@ -168,6 +186,23 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		B03270E32B1E493400DA703B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n";
+		};
 		F36B1CEB2AD83DDC00CB74D5 /* Compile Kotlin Framework */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -235,6 +270,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -297,6 +333,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
@@ -325,18 +362,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "${TEAM_ID}";
+				DEVELOPMENT_TEAM = D56865PV9V;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",
@@ -356,18 +396,21 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1.0;
 				DEVELOPMENT_ASSET_PATHS = "\"iosApp/Preview Content\"";
-				DEVELOPMENT_TEAM = "${TEAM_ID}";
+				DEVELOPMENT_TEAM = D56865PV9V;
 				ENABLE_PREVIEWS = YES;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SRCROOT)/../shared/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)\n$(SRCROOT)/../composeApp/build/xcode-frameworks/$(CONFIGURATION)/$(SDK_NAME)",
 				);
 				INFOPLIST_FILE = iosApp/Info.plist;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.developer-tools";
 				IPHONEOS_DEPLOYMENT_TARGET = 14.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 1.0;
 				OTHER_LDFLAGS = (
 					"$(inherited)",
 					"-framework",

@@ -1,3 +1,5 @@
+package com.alithya.boilerplate
+
 interface Platform {
     val name: String
 }

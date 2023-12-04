@@ -1,3 +1,5 @@
+package com.alithya.boilerplate
+
 class Greeting {
     private val platform = getPlatform()
 

@@ -1,4 +1,4 @@
-package utils
+package com.alithya.boilerplate.utils
 
 import io.github.aakira.napier.DebugAntilog
 import io.github.aakira.napier.Napier

@@ -1,3 +1,5 @@
+package com.alithya.boilerplate
+
 class JVMPlatform: Platform {
     override val name: String = "macOS"
 }

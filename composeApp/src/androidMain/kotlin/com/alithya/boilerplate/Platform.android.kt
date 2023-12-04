@@ -1,3 +1,5 @@
+package com.alithya.boilerplate
+
 import android.os.Build
 
 class AndroidPlatform : Platform {

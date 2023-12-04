@@ -17,9 +17,16 @@ kotlin = "1.9.21"
 kotlinx-coroutines = "1.7.3"
 junit = "4.13.2"
 ktorVersion = "2.3.6"
-koinVersion = "3.4.2"
+koinVersion = "3.5.0"
+koinComposeVersion = "1.1.0"
 napierVersion = "2.6.1"
 konfigVersion = "0.15.1"
+windowSizeVersion = "0.3.1"
+multiplatformSettingsVersion = "1.1.1"
+voyagerVersion = "1.0.0-rc10"
+datetimeVersion = "0.5.0"
+accompanistVersion = "0.32.0"
+componentsResources = "1.5.11"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -45,10 +52,10 @@ ktor-client-darwin = { module = "io.ktor:ktor-client-darwin", version.ref = "kto
 ktor-client-okhttp = { module = "io.ktor:ktor-client-okhttp", version.ref = "ktorVersion" }
 ktor-client-content-negotiation = { module = "io.ktor:ktor-client-content-negotiation", version.ref = "ktorVersion" }
 
-# Koin
+# koin
 koin-core = { group = "io.insert-koin", name = "koin-core", version.ref = "koinVersion" }
 koin-android = { group = "io.insert-koin", name = "koin-android", version.ref = "koinVersion" }
-koin-androidx-compose = { group = "io.insert-koin", name = "koin-androidx-compose", version.ref = "koinVersion" }
+koin-compose = { group = "io.insert-koin", name = "koin-compose", version.ref = "koinComposeVersion" }
 
 # swing for desktop
 kotlinx-coroutines-swing = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-swing", version.ref = "kotlinx-coroutines" }
@@ -58,6 +65,28 @@ napier = { group = "io.github.aakira", name = "napier", version.ref = "napierVer
 
 # konfig
 konfigPlugin = { group = "com.codingfeline.buildkonfig", name = "buildkonfig-gradle-plugin", version.ref = "konfigVersion" }
+
+# windows size
+window-size = { group = "dev.chrisbanes.material3", name = "material3-window-size-class-multiplatform", version.ref = "windowSizeVersion" }
+
+# preferences
+preferences-coroutines = { group = "com.russhwolf", name = "multiplatform-settings-coroutines", version.ref = "multiplatformSettingsVersion" }
+preferences = { group = "com.russhwolf", name = "multiplatform-settings", version.ref = "multiplatformSettingsVersion" }
+
+# voyager
+voyager-navigation = { group = "cafe.adriel.voyager", name = "voyager-navigator", version.ref = "voyagerVersion" }
+voyager-koin = { group = "cafe.adriel.voyager", name = "voyager-koin", version.ref = "voyagerVersion" }
+voyager-transitions = { group = "cafe.adriel.voyager", name = "voyager-transitions", version.ref = "voyagerVersion" }
+voyager-tabNavigator = { module = "cafe.adriel.voyager:voyager-tab-navigator", version.ref = "voyagerVersion" }
+voyager-bottomSheetNavigator = { module = "cafe.adriel.voyager:voyager-bottom-sheet-navigator", version.ref = "voyagerVersion" }
+
+# datetime
+datetime = { group = "org.jetbrains.kotlinx", name = "kotlinx-datetime", version.ref = "datetimeVersion"  }
+
+components-resources = { module = "org.jetbrains.compose.components:components-resources", version.ref = "componentsResources" }
+
+# accompanist
+accompanist-systemUIController = { group = "com.google.accompanist", name = "accompanist-systemuicontroller", version.ref = "accompanistVersion" }
 
 [plugins]
 jetbrainsCompose = { id = "org.jetbrains.compose", version.ref = "compose-plugin" }

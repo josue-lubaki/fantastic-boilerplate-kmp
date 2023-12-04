@@ -1,6 +1,7 @@
 import org.jetbrains.compose.desktop.application.dsl.TargetFormat
 import org.jetbrains.compose.ExperimentalComposeLibrary
 import com.codingfeline.buildkonfig.compiler.FieldSpec.Type.STRING
+import org.jetbrains.kotlin.gradle.plugin.extraProperties
 import java.util.Properties
 
 plugins {
@@ -21,7 +22,7 @@ kotlin {
     }
     
     jvm("desktop")
-    
+
     listOf(
         iosX64(),
         iosArm64(),
@@ -41,28 +42,61 @@ kotlin {
             implementation(libs.compose.ui.tooling.preview)
             implementation(libs.androidx.activity.compose)
             implementation(libs.ktor.client.okhttp)
+
+            // accompanist - UI Controller
+            implementation(libs.accompanist.systemUIController)
+
+            // Koin
+            implementation(libs.koin.android)
         }
+
         desktopMain.dependencies {
             implementation(compose.desktop.currentOs)
             implementation(libs.kotlinx.coroutines.swing)
             implementation(libs.ktor.client.okhttp)
         }
+
         iosMain.dependencies {
             implementation(libs.ktor.client.darwin)
+            implementation(libs.components.resources)
         }
+
         commonMain.dependencies {
             implementation(compose.runtime)
             implementation(compose.foundation)
+            implementation(compose.material)
             implementation(compose.material3)
             @OptIn(ExperimentalComposeLibrary::class)
             implementation(compose.components.resources)
 
+            // ktor
             implementation(libs.ktor.client.core)
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
+            // Koin
+            api(libs.koin.core)
+            api(libs.koin.compose)
+
             // logger
             implementation(libs.napier)
+
+            // datetime
+            implementation(libs.datetime)
+
+            // voyager
+            implementation(libs.voyager.navigation)
+            implementation(libs.voyager.koin)
+            implementation(libs.voyager.transitions)
+            implementation(libs.voyager.tabNavigator)
+            implementation(libs.voyager.bottomSheetNavigator)
+
+            // preferences
+            implementation(libs.preferences)
+            implementation(libs.preferences.coroutines)
+
+            // window-size
+            implementation(libs.window.size)
         }
     }
 }
@@ -109,7 +143,7 @@ android {
 
 compose.desktop {
     application {
-        mainClass = "MainKt"
+        mainClass = "com.alithya.boilerplate.MainKt"
 
         nativeDistributions {
             targetFormats(TargetFormat.Dmg, TargetFormat.Msi, TargetFormat.Deb)

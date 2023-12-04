@@ -1,3 +1,5 @@
+package com.alithya.boilerplate
+
 import platform.UIKit.UIDevice
 
 class IOSPlatform: Platform {
