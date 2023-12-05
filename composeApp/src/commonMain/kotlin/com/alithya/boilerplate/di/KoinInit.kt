@@ -1,7 +1,5 @@
-package com.alithya.boilerplate
+package com.alithya.boilerplate.di
 
-import com.alithya.boilerplate.di.commonModule
-import com.alithya.boilerplate.di.platformModule
 import org.koin.core.Koin
 import org.koin.core.context.startKoin
 import org.koin.dsl.KoinAppDeclaration

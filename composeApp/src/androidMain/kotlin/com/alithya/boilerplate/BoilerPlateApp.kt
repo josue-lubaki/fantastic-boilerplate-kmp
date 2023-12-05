@@ -1,6 +1,7 @@
 package com.alithya.boilerplate
 
 import android.app.Application
+import com.alithya.boilerplate.di.KoinInit
 import com.alithya.boilerplate.di.androidModule
 import com.russhwolf.settings.BuildConfig
 import org.koin.android.ext.koin.androidContext
@@ -14,7 +15,6 @@ import org.koin.core.logger.Level
  */
 
 class BoilerPlateApp : Application() {
-
         override fun onCreate() {
             super.onCreate()
 

@@ -3,6 +3,7 @@ package com.alithya.boilerplate.di
 import com.alithya.boilerplate.core.data.local.settings.PreferenceManager
 import com.alithya.boilerplate.core.data.repository.settings.SettingsRepositoryImpl
 import com.alithya.boilerplate.core.domain.repository.settings.SettingsRepository
+import com.alithya.boilerplate.features.settings.SettingsScreenModel
 import com.alithya.boilerplate.main.MainViewModel
 import org.koin.core.module.Module
 import org.koin.dsl.module
@@ -31,21 +32,20 @@ fun commonModule() = module {
         )
     }
 
+    /**
+     * ViewModels
+     */
     single<MainViewModel> {
         MainViewModel(
             settingsRepository = get(),
         )
     }
 
-    /**
-     * ViewModels
-     */
-//    single<SettingsScreenModel> {
-//        SettingsScreenModel(
-//            settingsRepository = get(),
-//        )
-//    }
-
+    single<SettingsScreenModel> {
+        SettingsScreenModel(
+            settingsRepository = get(),
+        )
+    }
 }
 
 expect fun platformModule(): Module

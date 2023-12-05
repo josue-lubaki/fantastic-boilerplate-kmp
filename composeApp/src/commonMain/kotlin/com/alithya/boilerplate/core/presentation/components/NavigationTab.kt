@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.vector.rememberVectorPainter
 import cafe.adriel.voyager.navigator.tab.Tab
 import cafe.adriel.voyager.navigator.tab.TabOptions
+import com.alithya.boilerplate.features.settings.SettingsScreen
 import com.alithya.boilerplate.platform.StatusBarColors
 
 /**
@@ -58,6 +59,7 @@ internal sealed class NavigationTab {
                 )
                 Text(
                     text = "Home Screen",
+                    color = MaterialTheme.colorScheme.onError,
                 )
             }
         }
@@ -94,6 +96,7 @@ internal sealed class NavigationTab {
                 )
                 Text(
                     text = "Search Screen",
+                    color = MaterialTheme.colorScheme.onPrimary,
                 )
             }
         }
@@ -130,6 +133,7 @@ internal sealed class NavigationTab {
                 )
                 Text(
                     text = "Add Screen",
+                    color = MaterialTheme.colorScheme.onError,
                 )
             }
         }
@@ -166,6 +170,7 @@ internal sealed class NavigationTab {
                 )
                 Text(
                     text = "Profile Screen",
+                    color = MaterialTheme.colorScheme.onSecondary,
                 )
             }
         }
@@ -189,21 +194,22 @@ internal sealed class NavigationTab {
 
         @Composable
         override fun Content() {
-//            SettingsScreen()
-            Box(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f)),
-                contentAlignment = Alignment.Center
-            ){
-                StatusBarColors(
-                    statusBarColor = MaterialTheme.colorScheme.background,
-                    navBarColor = MaterialTheme.colorScheme.background,
-                )
-                Text(
-                    text = "Settings Screen",
-                )
-            }
+            SettingsScreen()
+//            Box(
+//                modifier = Modifier
+//                    .fillMaxSize()
+//                    .background(MaterialTheme.colorScheme.tertiary.copy(alpha = 0.5f)),
+//                contentAlignment = Alignment.Center
+//            ){
+//                StatusBarColors(
+//                    statusBarColor = MaterialTheme.colorScheme.background,
+//                    navBarColor = MaterialTheme.colorScheme.background,
+//                )
+//                Text(
+//                    text = "Settings Screen",
+//                    color = MaterialTheme.colorScheme.onTertiary,
+//                )
+//            }
         }
     }
 

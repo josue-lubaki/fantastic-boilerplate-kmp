@@ -1,5 +1,8 @@
 package com.alithya.boilerplate.main
 
+import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
+import androidx.compose.foundation.interaction.MutableInteractionSource
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.RowScope
@@ -21,6 +24,7 @@ import androidx.compose.material3.windowsizeclass.ExperimentalMaterial3WindowSiz
 import androidx.compose.material3.windowsizeclass.WindowWidthSizeClass
 import androidx.compose.material3.windowsizeclass.calculateWindowSizeClass
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import cafe.adriel.voyager.core.screen.Screen
@@ -77,11 +81,16 @@ class MainScreen : Screen {
                     },
                     floatingActionButtonPosition = FabPosition.Center,
                     floatingActionButton = {
+                        val selectedTab = tabNavigator.current == NavigationTab.AddTab
                         FloatingActionButton(
                             modifier = Modifier
                                 .offset(y = 60.dp)
                                 .size(42.dp),
-                            containerColor = MaterialTheme.colorScheme.primary,
+                            containerColor = if(selectedTab) {
+                                MaterialTheme.colorScheme.secondaryContainer
+                            } else {
+                                MaterialTheme.colorScheme.primary
+                            },
                             onClick = {
                                 tabNavigator.current = NavigationTab.AddTab
                             },
@@ -93,7 +102,12 @@ class MainScreen : Screen {
                             Icon(
                                 imageVector = Icons.Filled.Add,
                                 contentDescription = "",
-                                tint = MaterialTheme.colorScheme.onPrimary,
+                                tint = if(selectedTab){
+                                    MaterialTheme.colorScheme.secondary
+                                }else {
+                                    MaterialTheme.colorScheme.onPrimary
+
+                               },
                                 modifier = Modifier.size(24.dp),
                             )
                         }
@@ -120,17 +134,20 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
     val isSelected = tabNavigator.current == tab
 
     BottomNavigationItem(
-        modifier = Modifier.offset(
-            x = when (tab.options.index) {
-                (0u).toUShort() -> 0.dp
-                (1u).toUShort() -> (-24).dp
-                (3u).toUShort() -> 24.dp
-                (4u).toUShort() -> 0.dp
-                else -> 0.dp
-            },
-        ),
+        modifier = Modifier
+            .offset(
+                x = when (tab.options.index) {
+                    (0u).toUShort() -> 0.dp
+                    (1u).toUShort() -> (-24).dp
+                    (3u).toUShort() -> 24.dp
+                    (4u).toUShort() -> 0.dp
+                    else -> 0.dp
+                },
+            ),
         selected = tabNavigator.current.key == tab.key,
-        onClick = { tabNavigator.current = tab },
+        onClick = {
+            tabNavigator.current = tab
+        },
         icon = {
             tab.options.icon?.let {
                 Icon(
@@ -141,10 +158,22 @@ private fun RowScope.TabNavigationItem(tab: Tab) {
                     },
                     contentDescription = tab.options.title,
                     tint = if (isSelected) {
-                        MaterialTheme.colorScheme.primary
+                        MaterialTheme.colorScheme.secondary
                     } else {
                         MaterialTheme.colorScheme.onBackground
                     },
+                    modifier = Modifier.then(
+                        if (isSelected) {
+                            Modifier
+                                .background(
+                                    color = MaterialTheme.colorScheme.secondaryContainer,
+                                    shape = CircleShape,
+                                )
+                                .padding(10.dp)
+                        } else {
+                            Modifier
+                        }
+                    )
                 )
             }
         },
