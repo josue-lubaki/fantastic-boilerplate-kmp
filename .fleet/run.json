@@ -1,0 +1,43 @@
+{
+    "configurations": [
+        {
+            "name": "AndroidApp",
+            "type": "android-app",
+            "workingDir": "$PROJECT_DIR$",
+            "allowParallelRun": true,
+            "module": "BoilerPlate.composeApp.main",
+            "destination": "Pixel 7 Pro API 34",
+        },
+        
+        {
+            "name": "iosApp",
+            "type": "xcode-app",
+            "workingDir": "$PROJECT_DIR$",
+            "buildTarget": {
+                "project": "iosApp",
+                "target": "iosApp"
+            },
+            "configuration": "Debug",
+            "destination": "iPhone 14 | iOS 17.0"
+        },
+        
+        {
+            "name": "desktopApp",
+            "type": "gradle",
+            "workingDir": "$PROJECT_DIR$",
+            "tasks": [
+                "desktopRun"
+            ],
+            "args": [
+                "-DmainClass=com.alithya.boilerplate.MainKt",
+                "--quiet",
+                "-p",
+                "$PROJECT_DIR$/composeApp"
+            ],
+            "initScripts": {
+                "flmapper": "ext.mapPath = { path -> null }"
+            }
+        }
+        
+    ]
+}
