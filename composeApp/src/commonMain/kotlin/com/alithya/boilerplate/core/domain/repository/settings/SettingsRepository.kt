@@ -11,4 +11,8 @@ import kotlinx.coroutines.flow.Flow
 interface SettingsRepository {
     suspend fun saveAppTheme(theme: Int)
     fun getAppTheme() : Flow<Int?>
+
+    suspend fun saveAccessToken(accessToken: String)
+
+    fun getAccessToken() : Flow<String?>
 }

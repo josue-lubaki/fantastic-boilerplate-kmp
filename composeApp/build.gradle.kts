@@ -8,8 +8,8 @@ plugins {
     alias(libs.plugins.kotlinMultiplatform)
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.jetbrainsCompose)
-    alias(libs.plugins.kotlinxSerialization)
     alias(libs.plugins.konfig)
+    kotlin("plugin.serialization")
 }
 
 kotlin {
@@ -48,6 +48,8 @@ kotlin {
 
             // Koin
             implementation(libs.koin.android)
+
+
         }
 
         desktopMain.dependencies {
@@ -98,6 +100,9 @@ kotlin {
 
             // window-size
             implementation(libs.window.size)
+
+            // serialization
+            implementation(libs.kotlinx.serialization.json)
         }
     }
 }
@@ -166,10 +171,19 @@ buildkonfig {
 
     defaultConfigs {
         buildConfigField(STRING, "BASE_URL", properties.getProperty("BASE_URL"))
+        buildConfigField(STRING, "GRANT_TYPE", properties.getProperty("GRANT_TYPE"))
+        buildConfigField(STRING, "CLIENT_ID", properties.getProperty("CLIENT_ID"))
+        buildConfigField(STRING, "CLIENT_SECRET", properties.getProperty("CLIENT_SECRET"))
     }
 }
 
 // fix for Android Studio canary latest version
 task("testClasses").doLast {
     println("This is a dummy testClasses task")
+}
+
+task("deleteAttributes").doFirst {
+    project.exec {
+        commandLine("xattr", "-cr", ".")
+    }
 }

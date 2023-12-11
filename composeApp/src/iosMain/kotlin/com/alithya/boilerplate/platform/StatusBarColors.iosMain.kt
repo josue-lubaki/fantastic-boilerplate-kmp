@@ -2,9 +2,12 @@ package com.alithya.boilerplate.platform
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.SideEffect
+import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.ui.graphics.Color
+import com.alithya.boilerplate.utils.getDeviceOrientation
 import kotlinx.cinterop.ExperimentalForeignApi
+import kotlinx.cinterop.copy
 import kotlinx.cinterop.zeroValue
 import platform.CoreGraphics.CGRect
 import platform.UIKit.UIApplication
@@ -20,11 +23,14 @@ import platform.UIKit.statusBarManager
  * version : 1.0.0
  */
 
+@OptIn(ExperimentalForeignApi::class)
 @Composable
 actual fun StatusBarColors(statusBarColor: Color, navBarColor: Color) {
-    val statusBar = statusBarView()
+    val statusBarView = statusBarView()
+
     SideEffect {
-        statusBar.backgroundColor = statusBarColor.toUIColor()
+        statusBarView.backgroundColor = statusBarColor.toUIColor()
+        UIApplication.sharedApplication.keyWindow?.addSubview(statusBarView)
         UINavigationBar.appearance().backgroundColor = navBarColor.toUIColor()
     }
 }
@@ -34,16 +40,26 @@ actual fun StatusBarColors(statusBarColor: Color, navBarColor: Color) {
 private fun statusBarView() = remember {
     val keyWindow: UIWindow? =
         UIApplication.sharedApplication.windows.firstOrNull { (it as? UIWindow)?.isKeyWindow() == true } as? UIWindow
-    val tag = 3848245L // https://stackoverflow.com/questions/56651245/how-to-change-the-status-bar-background-color-and-text-color-on-ios-13
+    val safeFrameSize = mutableStateOf(0.0)
 
-    keyWindow?.viewWithTag(tag) ?: run {
-        val height = keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?: zeroValue<CGRect>()
-        val statusBarView = UIView(frame = height)
-        statusBarView.tag = tag
-        statusBarView.layer.zPosition = 999999.0
-        keyWindow?.addSubview(statusBarView)
-        statusBarView
+    keyWindow?.safeAreaLayoutGuide?.layoutFrame?.copy {
+        // Getting safe area size in case of landscape and portrait
+        if (getDeviceOrientation().portrait) {
+            safeFrameSize.value = origin.y
+        } else {
+            safeFrameSize.value = origin.x
+        }
     }
+
+    val height = keyWindow?.windowScene?.statusBarManager?.statusBarFrame ?: zeroValue<CGRect>()
+    val statusBarView = UIView(
+        height.copy {
+            this.size.height = safeFrameSize.value
+        }
+    )
+
+    keyWindow?.addSubview(statusBarView)
+    statusBarView
 }
 
 private fun Color.toUIColor(): UIColor = UIColor(

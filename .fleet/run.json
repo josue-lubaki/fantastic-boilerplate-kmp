@@ -10,7 +10,7 @@
         },
         
         {
-            "name": "iosApp",
+            "name": "iosApp-14",
             "type": "xcode-app",
             "workingDir": "$PROJECT_DIR$",
             "buildTarget": {
@@ -20,7 +20,19 @@
             "configuration": "Debug",
             "destination": "iPhone 14 | iOS 17.0"
         },
-        
+
+        {
+            "name": "iosApp-15-Pro-Max",
+            "type": "xcode-app",
+            "workingDir": "$PROJECT_DIR$",
+            "buildTarget": {
+                "project": "iosApp",
+                "target": "iosApp"
+            },
+            "configuration": "Debug",
+            "destination": "iPhone 15 Pro Max | iOS 17.0"
+        },
+
         {
             "name": "desktopApp",
             "type": "gradle",

@@ -1,5 +1,6 @@
 package com.alithya.boilerplate.di
 
+import com.alithya.boilerplate.features.login.di.loginModule
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 
@@ -11,11 +12,6 @@ import org.koin.dsl.module
 
 fun initKoin() = module {
     startKoin {
-        modules(
-            listOf(
-                platformModule(),
-                commonModule(),
-            )
-        )
+        modules(KoinInit.allModules)
     }
 }

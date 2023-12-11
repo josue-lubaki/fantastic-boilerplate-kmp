@@ -23,6 +23,7 @@ class PreferenceManager constructor(private val settings: Settings) {
 
     companion object {
         const val APP_THEME = "app_theme"
+        const val ACCESS_TOKEN = "access_token"
     }
 
     // Strings
@@ -31,8 +32,11 @@ class PreferenceManager constructor(private val settings: Settings) {
     }
     fun getString(key: String) : String = observableSettings.getString(key = key, defaultValue = "")
 
-    fun getStringFlowOrNull(key: String) : Flow<String?> = observableSettings.getStringOrNullFlow(key = key)
+    fun getStringFlow(key: String): Flow<String?> {
+        return observableSettings.getStringOrNullFlow(key = key)
+    }
 
+    fun getStringFlowOrNull(key: String) : Flow<String?> = observableSettings.getStringOrNullFlow(key = key)
 
     // Int
     fun setInt(key: String, value: Int) {

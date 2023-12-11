@@ -6,6 +6,7 @@ buildscript {
     }
     dependencies {
         classpath(libs.konfigPlugin)
+        classpath(libs.kotlin.serialization)
     }
 }
 

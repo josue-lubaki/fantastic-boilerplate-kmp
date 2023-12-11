@@ -21,4 +21,12 @@ class SettingsRepositoryImpl(
         return preferenceManager.getIntFlow(key = PreferenceManager.APP_THEME)
     }
 
+    override suspend fun saveAccessToken(accessToken: String) {
+        preferenceManager.setString(key = PreferenceManager.ACCESS_TOKEN, value = accessToken)
+    }
+
+    override fun getAccessToken(): Flow<String?> {
+        return preferenceManager.getStringFlow(key = PreferenceManager.ACCESS_TOKEN)
+    }
+
 }

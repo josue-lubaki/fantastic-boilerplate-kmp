@@ -5,6 +5,7 @@ import com.alithya.boilerplate.core.data.repository.settings.SettingsRepositoryI
 import com.alithya.boilerplate.core.domain.repository.settings.SettingsRepository
 import com.alithya.boilerplate.features.settings.SettingsScreenModel
 import com.alithya.boilerplate.main.MainViewModel
+import kotlinx.coroutines.CoroutineDispatcher
 import org.koin.core.module.Module
 import org.koin.dsl.module
 
@@ -32,6 +33,8 @@ fun commonModule() = module {
         )
     }
 
+    single<CoroutineDispatcher> { dispatcher() }
+
     /**
      * ViewModels
      */
@@ -49,3 +52,4 @@ fun commonModule() = module {
 }
 
 expect fun platformModule(): Module
+expect fun dispatcher() : CoroutineDispatcher
