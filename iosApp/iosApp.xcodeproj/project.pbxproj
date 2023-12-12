@@ -71,6 +71,14 @@
 			path = xcschemes;
 			sourceTree = "<group>";
 		};
+		44F0FD664337377A9CC9CC1C /* project.xcworkspace */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = project.xcworkspace;
+			path = iosApp.xcodeproj/project.xcworkspace;
+			sourceTree = "<group>";
+		};
 		7555FF72242A565900829871 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +87,7 @@
 				7555FF7C242A565900829871 /* Products */,
 				42799AB246E5F90AF97AA0EF /* Frameworks */,
 				44F0F44936C843CEB720E4C9 /* xcuserdata */,
+				44F0FD664337377A9CC9CC1C /* project.xcworkspace */,
 			);
 			sourceTree = "<group>";
 		};
