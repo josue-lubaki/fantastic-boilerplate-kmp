@@ -17,8 +17,8 @@ kotlin = "1.9.21"
 kotlinx-coroutines = "1.7.3"
 junit = "4.13.2"
 ktorVersion = "2.3.6"
-koinVersion = "3.5.0"
-koinComposeVersion = "1.1.0"
+koinVersion = "3.5.3"
+koinComposeVersion = "1.1.2"
 napierVersion = "2.6.1"
 konfigVersion = "0.15.1"
 windowSizeVersion = "0.3.1"
@@ -27,9 +27,14 @@ voyagerVersion = "1.0.0-rc10"
 datetimeVersion = "0.5.0"
 accompanistVersion = "0.32.0"
 componentsResources = "1.5.11"
-serializationVersion = "1.6.0"
+serializationVersion = "1.6.2"
+jetbrainsKotlinJvmVersion = "1.9.0"
+cliktVersion = "3.5.2"
+kotlinxCliVersion = "0.3.5"
 
 [libraries]
+clikt = { module = "com.github.ajalt.clikt:clikt", version.ref = "cliktVersion" }
+kotlinx-cli = { module = "org.jetbrains.kotlinx:kotlinx-cli", version.ref = "kotlinxCliVersion" }
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
 kotlin-test-junit = { module = "org.jetbrains.kotlin:kotlin-test-junit", version.ref = "kotlin" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
@@ -100,3 +105,4 @@ androidLibrary = { id = "com.android.library", version.ref = "agp" }
 kotlinMultiplatform = { id = "org.jetbrains.kotlin.multiplatform", version.ref = "kotlin" }
 #kotlinSerialization = { id = "org.jetbrains.kotlin.plugin.serialization", version.ref = "kotlin" }
 konfig = { id = "com.codingfeline.buildkonfig", version.ref = "konfigVersion" }
+jetbrainsKotlinJvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
