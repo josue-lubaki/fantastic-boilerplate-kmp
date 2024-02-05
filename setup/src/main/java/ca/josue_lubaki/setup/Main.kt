@@ -7,4 +7,5 @@ package ca.josue_lubaki.setup
  */
 
 class Main {
+    fun main(args: Array<String>) = CLI().main(args)
 }
