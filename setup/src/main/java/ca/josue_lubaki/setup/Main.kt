@@ -6,6 +6,4 @@ package ca.josue_lubaki.setup
  * version : 1.0.0
  */
 
-class Main {
-    fun main(args: Array<String>) = CLI().main(args)
-}
+fun main(args: Array<String>) = CLI().main(args)
