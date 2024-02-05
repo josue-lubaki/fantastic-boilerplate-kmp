@@ -15,14 +15,10 @@ import java.io.File
  */
 
 class CLI : CliktCommand(){
-    companion object {
-        const val TEMPLATE_APP_NAME = "BoilerPlate"
-    }
 
     private val actualPackageName = "com.alithya.boilerplate"
     private val rootProjectName = "BoilerPlate"
 
-    private val composeAppModule by argument().file().default(File("composeApp"))
     private val composeAppBuildGradle by argument().file().default(File("composeApp/build.gradle.kts"))
     private val settingsGradle by argument().file().default(File("settings.gradle.kts"))
 
