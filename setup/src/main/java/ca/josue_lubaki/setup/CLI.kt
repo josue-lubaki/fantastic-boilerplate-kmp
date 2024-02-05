@@ -30,47 +30,109 @@ class CLI : CliktCommand(){
     private val packageName : String by option().prompt("Enter the package name of your app (example : com.example.app)")
 
     override fun run() {
+        echo("Step 1 : composeApp changes...")
         val composeAppBuildGradleContent = composeAppBuildGradle.readText()
         composeAppBuildGradle.delete()
         composeAppBuildGradle.createNewFile()
         composeAppBuildGradle.writeText(composeAppBuildGradleContent.replace(actualPackageName, packageName))
+        echo("Step 1 : DONE")
 
-        echo("Processing : composeApp changes...")
-
-//        setupAppName()
         setupComposeApp(packageName)
+
         setupSettingsGradle(appName)
 
         GitAddCommitCommand("test commit message, setup app").main(emptyArray())
+
+        echo("Processing --> DONE")
     }
 
     private fun setupComposeApp(packageName: String) {
+        echo("Step 2 : setupComposeApp changes...")
+        echo("Processing : androidApp changes...")
+        val oldAndroidMain = File("composeApp/src/androidMain/kotlin/${actualPackageName.replace(".", "/")}")
         val androidMainComposeApp = File("composeApp/src/androidMain/kotlin/${packageName.replace(".", "/")}")
         androidMainComposeApp.mkdirs()
-        composeAppModule.copyRecursively(androidMainComposeApp, overwrite = true)
-        composeAppModule.deleteRecursively()
+        oldAndroidMain.copyRecursively(androidMainComposeApp, overwrite = false)
+        oldAndroidMain.deleteRecursively()
+        androidMainComposeApp
+            .walkTopDown()
+            .filter { it.isFile }
+            .filter { !it.name.endsWith(".png") }
+            .filter { !it.name.endsWith(".webp") }
+            .forEach {
+                val content = it.readText()
+                it.delete()
+                it.createNewFile()
+                it.writeText(content.replace(actualPackageName, packageName))
+            }
+        echo("Processing : androidApp done")
 
+        echo("Processing : commonMainApp changes...")
+        val oldCommonMain = File("composeApp/src/commonMain/kotlin/${actualPackageName.replace(".", "/")}")
         val commonMain = File("composeApp/src/commonMain/kotlin/${packageName.replace(".", "/")}")
         commonMain.mkdirs()
-        composeAppModule.copyRecursively(commonMain, overwrite = true)
-        composeAppModule.deleteRecursively()
+        oldCommonMain.copyRecursively(commonMain, overwrite = false)
+        oldCommonMain.deleteRecursively()
+        commonMain
+            .walkTopDown()
+            .filter { it.isFile }
+            .filter { !it.name.endsWith(".png") }
+            .filter { !it.name.endsWith(".webp") }
+            .forEach {
+                val content = it.readText()
+                it.delete()
+                it.createNewFile()
+                it.writeText(content.replace(actualPackageName, packageName))
+            }
+        echo("Processing : commonMainApp done")
 
+        echo("Processing : desktopMainApp changes...")
+        val oldDesktopMain = File("composeApp/src/desktopMain/kotlin/${actualPackageName.replace(".", "/")}")
         val desktopMain = File("composeApp/src/desktopMain/kotlin/${packageName.replace(".", "/")}")
         desktopMain.mkdirs()
-        composeAppModule.copyRecursively(desktopMain, overwrite = true)
-        composeAppModule.deleteRecursively()
+        oldDesktopMain.copyRecursively(desktopMain, overwrite = false)
+        oldDesktopMain.deleteRecursively()
+        desktopMain
+            .walkTopDown()
+            .filter { it.isFile }
+            .filter { !it.name.endsWith(".png") }
+            .filter { !it.name.endsWith(".webp") }
+            .forEach {
+                val content = it.readText()
+                it.delete()
+                it.createNewFile()
+                it.writeText(content.replace(actualPackageName, packageName))
+            }
+        echo("Processing : desktopMainApp done")
 
+        echo("Processing : iosMainApp changes...")
+        val oldIosMain = File("composeApp/src/iosMain/kotlin/${actualPackageName.replace(".", "/")}")
         val iosMain = File("composeApp/src/iosMain/kotlin/${packageName.replace(".", "/")}")
         iosMain.mkdirs()
-        composeAppModule.copyRecursively(iosMain, overwrite = true)
-        composeAppModule.deleteRecursively()
+        oldIosMain.copyRecursively(iosMain, overwrite = false)
+        oldIosMain.deleteRecursively()
+        iosMain
+            .walkTopDown()
+            .filter { it.isFile }
+            .filter { !it.name.endsWith(".png") }
+            .filter { !it.name.endsWith(".webp") }
+            .forEach {
+                val content = it.readText()
+                it.delete()
+                it.createNewFile()
+                it.writeText(content.replace(actualPackageName, packageName))
+            }
+        echo("Processing : iosMainApp done")
+        echo("Step 2 --> DONE")
     }
 
     private fun setupSettingsGradle(appName: String) {
+        echo("Step 3 : setupSettingsGradle changes...")
         val settingsGradleContent = settingsGradle.readText()
         settingsGradle.delete()
         settingsGradle.createNewFile()
         settingsGradle.writeText(settingsGradleContent.replace(rootProjectName, appName))
+        echo("Step 3 --> DONE")
     }
 }
 
