@@ -6,11 +6,11 @@
             "workingDir": "$PROJECT_DIR$",
             "allowParallelRun": true,
             "module": "BoilerPlate.composeApp.main",
-            "destination": "Pixel 7 Pro API 34",
+            "destination": "Pixel 7 Pro API 34"
         },
         
         {
-            "name": "iosApp-14",
+            "name": "iosApp-15",
             "type": "xcode-app",
             "workingDir": "$PROJECT_DIR$",
             "buildTarget": {
@@ -18,11 +18,11 @@
                 "target": "iosApp"
             },
             "configuration": "Debug",
-            "destination": "iPhone 14 | iOS 17.0"
+            "destination": "iPhone 15 | iOS 17.2"
         },
 
         {
-            "name": "iosApp-15-Pro-Max",
+            "name": "iosApp-15-Pro",
             "type": "xcode-app",
             "workingDir": "$PROJECT_DIR$",
             "buildTarget": {
@@ -30,7 +30,7 @@
                 "target": "iosApp"
             },
             "configuration": "Debug",
-            "destination": "iPhone 15 Pro Max | iOS 17.0"
+            "destination": "iPhone 15 Pro | iOS 17.2"
         },
 
         {
@@ -45,10 +45,7 @@
                 "--quiet",
                 "-p",
                 "$PROJECT_DIR$/composeApp"
-            ],
-            "initScripts": {
-                "flmapper": "ext.mapPath = { path -> null }"
-            }
+            ]
         }
         
     ]
