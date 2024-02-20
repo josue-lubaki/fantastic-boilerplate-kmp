@@ -77,6 +77,8 @@ kotlin {
             implementation(libs.ktor.client.content.negotiation)
             implementation(libs.ktor.serialization.kotlinx.json)
 
+            implementation("co.touchlab:stately-common:2.0.5")
+
             // Koin
             api(libs.koin.core)
             api(libs.koin.compose)
